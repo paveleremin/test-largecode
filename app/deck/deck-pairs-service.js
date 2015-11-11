@@ -9,7 +9,7 @@
         while (--i) {
             randIndex = Math.floor(i * Math.random());
             // swap values
-            copy[i] = [copy[randIndex], copy[randIndex] = copy[i]][0]
+            copy[i] = [copy[randIndex], copy[randIndex] = copy[i]][0];
         }
 
         return copy;
