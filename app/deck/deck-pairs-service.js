@@ -9,7 +9,7 @@
         while (--i) {
             randIndex = Math.floor(i * Math.random());
             // swap values
-            copy[i] = [copy[randIndex], copy[randIndex] = copy[i]][0];
+            copy[i] = [copy[randIndex], copy[randIndex] = copy[i]][0]
         }
 
         return copy;
@@ -22,7 +22,8 @@
     module.factory('Pairs', function(Card, $timeout) {
 
         var CardPairs = function(numPairs) {
-            this.cards = this.randomPairs(numPairs);
+            this.numPairs = parseInt(numPairs);
+            this.cards = [];
             this._isFinished = false;
         };
 
@@ -41,11 +42,11 @@
             ];
         };
 
-        CardPairs.prototype.randomPairs = function(numPairs) {
+        CardPairs.prototype.randomPairs = function() {
             var icons = this.availableIcons(),
                 cards = [];
 
-            while (cards.length < numPairs * 2) {
+            while (cards.length < this.numPairs * 2) {
                 var randIndex = Math.floor(icons.length * Math.random());
                 cards.push(new Card(icons[randIndex]));
                 cards.push(new Card(icons[randIndex]));
@@ -53,6 +54,7 @@
 
             cards = shuffle(cards);
 
+            this._isFinished = false;
             return this.cards = cards;
         };
 

@@ -6,7 +6,7 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    middleware: function (connect) {
+                    middleware: function(connect) {
                         var modRewrite = require('connect-modrewrite'),
                             serveStatic = require('serve-static');
 
@@ -84,7 +84,7 @@ module.exports = function (grunt) {
                 options: {
                     livereload: false,
                     base: '<%= appConfig.dist %>',
-                    middleware: function () {
+                    middleware: function() {
                         var modRewrite = require('connect-modrewrite'),
                             serveStatic = require('serve-static');
 
@@ -144,7 +144,7 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [{
                         match: /<base href=".*?".*?>/,
-                        replacement: function (tag) {
+                        replacement: function(tag) {
                             var gitUrl = grunt.file.readJSON('./package.json').repository.url;
                             var gitHubPath  = gitUrl.match(/\/([^\/]+)\.git$/)[1];
                             return tag.replace(/".*?"/, '"/'+gitHubPath+'/"');
@@ -232,7 +232,7 @@ module.exports = function (grunt) {
                         }
                     },
                     blockReplacements: {
-                        less: function (block) {
+                        less: function(block) {
                             console.log('block', block);
                             return '<link rel="stylesheet" href="'+block.dest+'">';
                         }
@@ -369,7 +369,7 @@ module.exports = function (grunt) {
     });
 
 
-    grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+    grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
         if (target === 'dist') {
             return grunt.task.run(['connect:dist:keepalive']);
         }

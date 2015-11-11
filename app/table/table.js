@@ -6,6 +6,7 @@
         var ctrl = this;
 
         ctrl.cardPairs = CardPairs;
+        ctrl.cardPairs.randomPairs();
     };
 
     // INIT MODULE
