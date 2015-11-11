@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "app",
   "scripts": {
-    "start": "./node_modules/.bin/grunt serve",
-    "dist": "./node_modules/.bin/grunt serve:dist",
-    "build": "./node_modules/.bin/grunt build",
-    "postinstall": "./node_modules/.bin/bower install && npm run build"
+    "start": "grunt serve",
+    "dist": "grunt serve:dist",
+    "build": "grunt build",
+    "postinstall": "bower install && npm run build"
   },
   "engines": {
     "node": "^3.3.9",
